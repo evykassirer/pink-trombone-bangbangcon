@@ -12,4 +12,6 @@ venuspatrol.nfshost.com
 
 The original source code is from http://dood.al/pinktrombone/
 
-The app built from the code in this repo's master branch can be found [here](https://evykassirer.github.io/pink-trombone/)
+This repo is a fork of the original code, kept at https://github.com/evykassirer/pink-trombone for others' reuse.
+
+The app built from this repo's master branch can be found [here](https://evykassirer.github.io/pink-trombone-bangbangcon/)
