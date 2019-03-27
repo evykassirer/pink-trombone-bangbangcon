@@ -2,8 +2,8 @@
 
 misc
 
-- fix explore mode, it's off-by-1 right now
-- voicebox control is sticky in explore mode
+- ideally only save clicks in explore mode that are on the main section
+  - voicebox control, about, etc shouldn't save
 - drawPositions draws weird symbols
 
 ### IPA mappings
