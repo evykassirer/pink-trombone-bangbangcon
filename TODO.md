@@ -8,7 +8,7 @@ misc
 
 ### IPA mappings
 
-- functions for producing each IPA sound [0/44]
+- functions for producing each IPA sound [3/44]
 - UI click button or enter IPA symbol, get the sound
 
 ### explore stringing together mappings
@@ -22,4 +22,6 @@ misc
 ### research
 
 - fricatives (app isn't very good at them)
-
+- the math used in the app for tongue, nose, etc (in tract-ui)
+- read research papers cited in BIBLIOGRAPHY
+- ~read notes at bottom of https://www.antimoon.com/how/pronunc-soundsipa.htm ~
