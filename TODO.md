@@ -2,6 +2,7 @@
 
 misc
 
+- the glottal on voice start makes things like 'ha ha ha' weird
 - ideally only save clicks in explore mode that are on the main section
   - voicebox control, about, etc shouldn't save
 - drawPositions draws weird symbols
