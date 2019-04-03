@@ -13,15 +13,6 @@
   <input id="ipaSubmitButton" type="submit">
 </form>
 
-<script type="text/javascript">
-var form = document.getElementById('ipaForm');
-form.onsubmit = function(e){
-  e.preventDefault();
-  console.log(e.target[0].value);
-};
-
-</script>
-
 <canvas id="tractCanvas" width="600" height="600"
 style = "position: absolute; z-index: 1;  background-color:transparent; margin: 0; padding: 0;">
 </canvas>
@@ -47,6 +38,26 @@ style = "position: absolute; z-index: 0; background-color:transparent; margin: 0
 <script type="text/javascript" src="./lib/tract-ui.js"></script>
 
 <script type="text/javascript" src="./index.js"></script>
+<script type="text/javascript" src="./utils/ipa-mappings.js"></script>
+
+<script type="text/javascript">
+// TODO move this to a file :p
+const form = document.getElementById('ipaForm');
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+async function simulateCharacter(ipaText, index) {
+  if (index === ipaText.length) return;
+  UI.addSimulatedTouch(IPAMappings[ipaText[index]])
+  await sleep(200);
+  simulateCharacter(ipaText, index+1)
+}
+form.onsubmit = function(e){
+  e.preventDefault();
+  ipaText = e.target[0].value;
+  simulateCharacter(ipaText, 0);
+};
+</script>
 
 </body>
 </html>
