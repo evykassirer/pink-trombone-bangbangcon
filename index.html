@@ -8,6 +8,20 @@
 
 <body style="margin: 0; padding: 0; background-color:white">
 
+<form id="ipaForm">
+  <input id="ipaInput" type="text" name="ipa"></input>
+  <input id="ipaSubmitButton" type="submit">
+</form>
+
+<script type="text/javascript">
+var form = document.getElementById('ipaForm');
+form.onsubmit = function(e){
+  e.preventDefault();
+  console.log(e.target[0].value);
+};
+
+</script>
+
 <canvas id="tractCanvas" width="600" height="600"
 style = "position: absolute; z-index: 1;  background-color:transparent; margin: 0; padding: 0;">
 </canvas>
@@ -19,6 +33,7 @@ style = "position: absolute; z-index: 0; background-color:transparent; margin: 0
 <script type="text/javascript" src="./utils/perlin-and-simplex-noise.js"></script>
 <script type="text/javascript" src="./utils/browser-detection.js"></script>
 <script type="text/javascript" src="./utils/make-button.js"></script>
+<script type="text/javascript" src="./utils/IPA-mappings.js"></script>
 
 <script type="text/javascript" src="./config.js"></script>
 
