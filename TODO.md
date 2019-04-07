@@ -2,6 +2,8 @@
 
 misc
 
+- why do unvoiced consonants sound pretty much entirely voiced still?
+- I can hear the voice start slightly before the m on mama
 - the glottal on voice start (or maybe just the abruptness?) makes things like 'ha ha ha' weird
 - ideally only save clicks in explore mode that are on the main section
   - voicebox control, about, etc shouldn't save

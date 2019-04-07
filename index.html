@@ -47,7 +47,10 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 async function simulateCharacter(ipaText, index) {
-  if (index === ipaText.length) return;
+  if (index === ipaText.length) {
+    UI.setVoice(false);
+    return;
+  }
   UI.addSimulatedTouch(IPAMappings[ipaText[index]])
   await sleep(200);
   simulateCharacter(ipaText, index+1)
