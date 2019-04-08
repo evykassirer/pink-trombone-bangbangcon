@@ -49,6 +49,8 @@ function sleep(ms) {
 async function simulateCharacter(ipaText, index) {
   if (index === ipaText.length) {
     UI.setVoice(false);
+    UI.removeSimulatedTouches();
+    UI.handleTouches();
     return;
   }
   UI.addSimulatedTouch(IPAMappings[ipaText[index]])

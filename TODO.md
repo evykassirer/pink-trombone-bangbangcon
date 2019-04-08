@@ -1,18 +1,26 @@
 ## TODO
 
-misc
+make it sound better! :p
 
-- why do unvoiced consonants sound pretty much entirely voiced still?
-- I can hear the voice start slightly before the m on mama
-- the glottal on voice start (or maybe just the abruptness?) makes things like 'ha ha ha' weird
+- I can hear the voice start slightly before initial consonants and after ending consonants (if they're voiced) -- this is a top priority for fixing
+- why do unvoiced consonants sound pretty much entirely voiced still? possibly related to touches/voice not being super sychronous
+
+- the glottal on voice start (or maybe just the abruptness?) makes things like 'ha ha ha' weird (so far mainly an issue for h only, but possibly other things would benefit from gradual voice)
+
+
+tooling
+
+- make it easier to enter ipa mappings in text field? annoying to copy paste symbols
 - ideally only save clicks in explore mode that are on the main section
   - voicebox control, about, etc shouldn't save
-- drawPositions draws weird symbols (this might be a text editor bug!)
+- ~drawPositions draws weird symbols (this might be a text editor bug!)~
+  - it was! UTF-8 with BOM fixed it (whatever that means)
 
 ### IPA mappings
 
-- IPA sounds [4/44]
-- make it easier to enter ipa mappings in text field? annoying to copy paste symbols
+- add from drawPositions function
+- fix them :p
+- add missing phonemes from drawPositions
 
 ### explore stringing together mappings
 
