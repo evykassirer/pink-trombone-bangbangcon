@@ -49,6 +49,8 @@ function sleep(ms) {
 async function simulateCharacter(ipaText, index) {
   if (index === ipaText.length) {
     UI.setVoice(false);
+    // weird lag in turning voice off (and on?) so i'll add this for now
+    await sleep(200);
     UI.removeSimulatedTouches();
     UI.handleTouches();
     return;
