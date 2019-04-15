@@ -11,6 +11,9 @@
 <form id="ipaForm">
   <input id="ipaInput" type="text" name="ipa"></input>
   <input id="ipaSubmitButton" type="submit">
+  <br/>
+  Explore mode
+  <input id="exploreModeToggle" type="checkbox">
 </form>
 
 <canvas id="tractCanvas" width="600" height="600"
@@ -41,21 +44,28 @@ style = "position: absolute; z-index: 0; background-color:transparent; margin: 0
 <script type="text/javascript" src="./utils/ipa-mappings.js"></script>
 
 <script type="text/javascript">
-// TODO move this to a file :p
+// TODO move this code to a file :p
 const form = document.getElementById('ipaForm');
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 async function simulateCharacter(ipaText, index) {
-  if (index === ipaText.length) {
+  var endOfInput = index === ipaText.length;
+  var isSpace = ipaText[index] === ' ';
+
+  if (endOfInput || isSpace) {
     UI.setVoice(false);
     // weird lag in turning voice off (and on?) so i'll add this for now
     await sleep(200);
     UI.removeSimulatedTouches();
     UI.handleTouches();
-    return;
   }
-  UI.addSimulatedTouch(IPAMappings[ipaText[index]])
+  if (endOfInput) return;
+
+  if (!isSpace) {
+    UI.addSimulatedTouch(IPAMappings[ipaText[index]])
+  }
+
   await sleep(200);
   simulateCharacter(ipaText, index+1)
 }
@@ -64,6 +74,11 @@ form.onsubmit = function(e){
   ipaText = e.target[0].value;
   simulateCharacter(ipaText, 0);
 };
+
+toggle = document.getElementById("exploreModeToggle")
+toggle.onclick = function(e) {
+  UI.setExploreMode(toggle.checked);
+}
 </script>
 
 </body>
