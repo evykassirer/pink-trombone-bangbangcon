@@ -11,8 +11,8 @@
     voice: true,
   },
   h : {
-    x: 74.91995731056564,
-    y: 458.48452508004266,
+    x: 81.67539267015707,
+    y: 463.6649214659686,
     fricative: 1,
     voice: false,
   },
@@ -47,22 +47,22 @@
     y: 148.4247374562427,
     voice: true,
   },
-  // (like pat) --- need to save with UTF-8 with BOM for this to work correctly
+  // (like arm) --- need to save with UTF-8 with BOM for this to work correctly
   ɑ : {
     x: 222.83884738527215,
     y: 389.96798292422625,
     voice: true,
   },
   ŋ: { // ng
-    x: 74.7800586510264,
-    y: 206.74486803519062,
+    x: 142.8872497365648,
+    y: 124.55216016859852,
     voice: true,
   },
   s : {
     x: 365.9824046920821,
     y: 186.51026392961876,
     voice: false,
-    fricative: 1,
+    fricative: 0.7,
   },
   z : {
     x: 363.34310850439886,
@@ -109,12 +109,14 @@
         y: 305.18053375196234,
 
       },
+      // hard to get lips right for u
       {
-        x: 429.5133437990581,
-        y: 214.75667189952904,
+        x: 393.9267015706806,
+        y: 202.93193717277487,
       },
     ],
     voice: true,
+    fricative: 0.001,
   },
   w : {
     x: 425.1748251748252,
@@ -157,4 +159,40 @@
     voice: true,
     fricative: 0.2,
   },
+  o : {
+    multipleTouches: true,
+    touches: [
+      {
+        x: 391.26506024096386,
+        y: 209.1867469879518,
+      },
+      {
+        x: 208.8987764182425,
+        y: 349.05450500556174,
+      }
+    ],
+    voice: true,
+  },
+  ʊ : {
+    x: 241.95804195804195,
+    y: 330.7692307692308,
+    voice: true,
+  },
+  // this is a pretty sketchy version or r, I think there's a lot more vowel stuff going no
+  r : {
+    multipleTouches: true,
+    // some vowels are fine with r but not all, so I just moved the tongue to a vowel that worked :3
+    touches: [
+      {
+        x: 300.94240837696333,
+        y: 201.67539267015707,
+      },
+      {
+        x: 238.74345549738217,
+        y: 348.6910994764398,
+      }
+    ],
+    voice: true,
+    fricative: 0,
+  }
 }
