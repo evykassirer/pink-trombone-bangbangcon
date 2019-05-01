@@ -30,30 +30,34 @@ async function simulateCharacter(ipaText, index) {
     UI.addSimulatedTouch(phonemeData)
   }
 
-  previousLetterWasVowel = false
-  if (index > 0) {
-    previousPhoneme = ipaText[index-1];
-    previousLetterWasVowel = (
-      previousPhoneme in IPAMappings
-      && IPAMappings[previousPhoneme].vowel
-    )
-  }
-
-  phonemeTime = 100
-  if (phonemeData && phonemeData.vowel && !previousLetterWasVowel) {
-    phonemeTime = 200
-    if (index + 1 < ipaText.length) {
-      nextPhoneme = ipaText[index+1];
-      // I am not sure if this does anything, especially considering how much
-      // there is dipthongs
-      // I guess I can (TODO) try looking for the next non-vowel and check that,
-      // which would work better
-      nextPhonemeIsUnvoicedConsonant = (
+  vowelDoubling = document.getElementById("vowelDoubling")
+  phonemeTime = 200
+  if (vowelDoubling.checked) {
+    phonemeTime = 100
+    previousLetterWasVowel = false
+    if (index > 0) {
+      previousPhoneme = ipaText[index-1];
+      previousLetterWasVowel = (
         previousPhoneme in IPAMappings
-        && !IPAMappings[previousPhoneme].voice
+        && IPAMappings[previousPhoneme].vowel
       )
-      if (nextPhonemeIsUnvoicedConsonant) {
-        phonemeTime = 150
+    }
+
+    if (phonemeData && phonemeData.vowel && !previousLetterWasVowel) {
+      phonemeTime = 200
+      if (index + 1 < ipaText.length) {
+        nextPhoneme = ipaText[index+1];
+        // I am not sure if this does anything, especially considering how much
+        // there is dipthongs
+        // I guess I can (TODO) try looking for the next non-vowel and check that,
+        // which would work better
+        nextPhonemeIsUnvoicedConsonant = (
+          previousPhoneme in IPAMappings
+          && !IPAMappings[previousPhoneme].voice
+        )
+        if (nextPhonemeIsUnvoicedConsonant) {
+          phonemeTime = 150
+        }
       }
     }
   }
