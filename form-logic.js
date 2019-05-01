@@ -26,10 +26,39 @@ async function simulateCharacter(ipaText, index) {
 
   if (!isSpace) {
     var phoneme = ipaText[index];
-    UI.addSimulatedTouch(IPAMappings[phoneme])
+    var phonemeData = IPAMappings[phoneme]
+    UI.addSimulatedTouch(phonemeData)
   }
 
-  await sleep(200);
+  previousLetterWasVowel = false
+  if (index > 0) {
+    previousPhoneme = ipaText[index-1];
+    previousLetterWasVowel = (
+      previousPhoneme in IPAMappings
+      && IPAMappings[previousPhoneme].vowel
+    )
+  }
+
+  phonemeTime = 100
+  if (phonemeData && phonemeData.vowel && !previousLetterWasVowel) {
+    phonemeTime = 200
+    if (index + 1 < ipaText.length) {
+      nextPhoneme = ipaText[index+1];
+      // I am not sure if this does anything, especially considering how much
+      // there is dipthongs
+      // I guess I can (TODO) try looking for the next non-vowel and check that,
+      // which would work better
+      nextPhonemeIsUnvoicedConsonant = (
+        previousPhoneme in IPAMappings
+        && !IPAMappings[previousPhoneme].voice
+      )
+      if (nextPhonemeIsUnvoicedConsonant) {
+        phonemeTime = 150
+      }
+    }
+  }
+
+  await sleep(phonemeTime);
   simulateCharacter(ipaText, index+1)
 }
 
@@ -53,7 +82,7 @@ toggle.onclick = function(e) {
 }
 
 // for talk demo
-
+// TODO stop this from blocking people from typing these keys :p
 document.addEventListener("keydown", event => {
   if (event.repeat) return;
   inputBox = document.getElementById('ipaInput')
@@ -66,5 +95,8 @@ document.addEventListener("keydown", event => {
   else if (event.keyCode === 80) { // p
     inputBox.value = 'hɑi pɑilɪidiz'
 
+  }
+  else if (event.keyCode === 87) { // w
+    inputBox.value = 'hɑɪ wɑfldʒeɪɛs'
   }
 });

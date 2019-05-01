@@ -22,11 +22,6 @@
     voice: true,
     fricative: 0.1,
   },
-  i : {
-    x: 280.04667444574096,
-    y: 294.74912485414234,
-    voice: true,
-  },
   d : {
     x: 368.96149358226376,
     y: 123.22053675612601,
@@ -45,12 +40,6 @@
   b : {
     x: 457.1761960326721,
     y: 148.4247374562427,
-    voice: true,
-  },
-  // (like arm) --- need to save with UTF-8 with BOM for this to work correctly
-  ɑ : {
-    x: 222.83884738527215,
-    y: 389.96798292422625,
     voice: true,
   },
   ŋ: { // ng
@@ -75,6 +64,68 @@
     y: 186.51026392961876,
     voice: false,
     fricative: 1,
+  },
+  w : {
+    x: 425.1748251748252,
+    y: 220.979020979021,
+    voice: true,
+  },
+  n : {
+    x: 329.3706293706294,
+    y: 83.21678321678321,
+    voice: true,
+  },
+  l : {
+    x: 383.91608391608395,
+    y: 205.5944055944056,
+    voice: true,
+  },
+  k : {
+    x: 158.74125874125872,
+    y: 188.8111888111888,
+    voice: false,
+  },
+  g : {
+    x: 158.74125874125872,
+    y: 188.8111888111888,
+    voice: true,
+  },
+  ʒ : { // s in pleasure
+    x: 301.75953079178885,
+    y: 186.51026392961876,
+    voice: true,
+    fricative: 0.1,
+  },
+  // this is a pretty sketchy version or r, I think there's a lot more vowel stuff going no
+  r : {
+    multipleTouches: true,
+    // some vowels are fine with r but not all, so I just moved the tongue to a vowel that worked :3
+    touches: [
+      {
+        x: 300.94240837696333,
+        y: 201.67539267015707,
+      },
+      {
+        x: 238.74345549738217,
+        y: 348.6910994764398,
+      }
+    ],
+    voice: true,
+    fricative: 0,
+  }
+}
+
+vowels = {
+  i : {
+    x: 280.04667444574096,
+    y: 294.74912485414234,
+    voice: true,
+  },
+  // (like arm) --- need to save with UTF-8 with BOM for this to work correctly
+  ɑ : {
+    x: 222.83884738527215,
+    y: 389.96798292422625,
+    voice: true,
   },
   Ʌ : { // cup
     x: 226.09970674486803,
@@ -123,31 +174,6 @@
     voice: true,
     fricative: 0.001,
   },
-  w : {
-    x: 425.1748251748252,
-    y: 220.979020979021,
-    voice: true,
-  },
-  n : {
-    x: 329.3706293706294,
-    y: 83.21678321678321,
-    voice: true,
-  },
-  l : {
-    x: 383.91608391608395,
-    y: 205.5944055944056,
-    voice: true,
-  },
-  k : {
-    x: 158.74125874125872,
-    y: 188.8111888111888,
-    voice: false,
-  },
-  g : {
-    x: 158.74125874125872,
-    y: 188.8111888111888,
-    voice: true,
-  },
   ɔ: { // call
     x: 199.3006993006993,
     y: 350.3496503496504,
@@ -157,12 +183,6 @@
     x: 246.85314685314685,
     y: 359.44055944055947,
     voice: true,
-  },
-  ʒ : { // s in pleasure
-    x: 301.75953079178885,
-    y: 186.51026392961876,
-    voice: true,
-    fricative: 0.2,
   },
   o : {
     multipleTouches: true,
@@ -182,22 +202,11 @@
     x: 241.95804195804195,
     y: 330.7692307692308,
     voice: true,
-  },
-  // this is a pretty sketchy version or r, I think there's a lot more vowel stuff going no
-  r : {
-    multipleTouches: true,
-    // some vowels are fine with r but not all, so I just moved the tongue to a vowel that worked :3
-    touches: [
-      {
-        x: 300.94240837696333,
-        y: 201.67539267015707,
-      },
-      {
-        x: 238.74345549738217,
-        y: 348.6910994764398,
-      }
-    ],
-    voice: true,
-    fricative: 0,
   }
+}
+
+for (var phoneme in vowels) {
+  data = vowels[phoneme]
+  data.vowel = true
+  IPAMappings[phoneme] = data
 }
