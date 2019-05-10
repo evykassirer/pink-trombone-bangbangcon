@@ -85,10 +85,10 @@ toggle.onclick = function(e) {
   UI.setExploreMode(toggle.checked);
 }
 
-// for talk demo
-// TODO stop this from blocking people from typing these keys :p
+// ---- for talk demo ----
+// TODO remove this after the talk
+// to stop this from blocking people from typing these keys :p
 document.addEventListener("keydown", event => {
-  if (event.repeat) return;
   inputBox = document.getElementById('ipaInput')
   if (event.keyCode === 77) { // m
       inputBox.value = 'mɑmɑ'
@@ -96,11 +96,14 @@ document.addEventListener("keydown", event => {
   else if (event.keyCode === 72) { // h
     inputBox.value = 'hɑhɑ'
   }
-  else if (event.keyCode === 80) { // p
-    inputBox.value = 'hɑi pɑilɪidiz'
-
-  }
-  else if (event.keyCode === 87) { // w
-    inputBox.value = 'hɑɪ wɑfldʒeɪɛs'
+  // else if (event.keyCode === 80) { // p
+  //   inputBox.value = 'hɑi pɑilɪidiz'
+  //
+  // }
+  // else if (event.keyCode === 87) { // w
+  //   inputBox.value = 'hɑɪ wɑfldʒeɪɛs'
+  // }
+  else if (event.keyCode === 66) { // b
+    inputBox.value = 'hɑɪ bɛɪŋbɛɪŋkɑn'
   }
 });
